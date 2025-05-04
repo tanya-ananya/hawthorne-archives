@@ -10,16 +10,100 @@ html {
     color: var(--text-color);
 }
 
-header, main {
-    margin: 4%;
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 0 4% 0 4%;
+}
+
+.navbar {
+    background-color: var(--footer-background-color);
+}
+
+.nav-specific {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0% 1% 0% 1%;
+}
+
+.navbar ul {
+    z-index: 1000;
+    color: #103e1f;
+    list-style-type: none;
+}
+
+.navbar ul li {
+    float: left;
+    margin: 10px;
+}
+
+.navbar ul li a:hover {
+    color: blue;
+}
+
+.navbar ul li a:visited {
+    color: inherit;
 }
 
 h1 {
     text-align: center;
 }
 
-.books {
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#header-img {
+    width: 4%;
+}
+
+.header-content {
+    margin: 1% 4% 0 4%;
+    text-align: center;
+}
+
+hr {
+    border-top: 1.5px dashed var(--accent-color-green-light);
+    margin: 1% 10% 0 10%;
+}
+
+.header-content h1,
+.header-content h2 {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.header-content h1 {
+    font-weight: bold;
+}
+
+header img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.about-web h3 {
+    margin-left: 2%;
+}
+
+.the-books {
+    margin: 0%;
+    line-height: 0.5;
+}
+
+.each-book {
+    margin-left: 2%;
+}
+
+.book-img {
     width: 15%;
+    margin-top: 2%;
 }
 
 footer {
@@ -49,7 +133,7 @@ footer img {
     --accent-color-medium: #684fb5;
     --accent-color-dark: #482f95;
     --accent-color-darkest: #231942;
-    --accent-color-green: #28eb76;
+    --accent-color-green-light: #0c5825;
 
     /* Error Colors */
     --error-color: #f8bbd0;
