@@ -98,22 +98,30 @@ header img {
 }
 
 .each-book {
-    margin-left: 2%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2%;
-    margin-top: 2%;
+    gap: 4%;
+    margin: 0% 0% 0% 2%;
 }
 
 .book {
     text-align: center;
-    width: 18%;
+    flex: 1 1 180px;
+    max-width: 300px;
+    margin-bottom: 1.5%;
+}
+
+.book h3,
+.book h4 {
+    margin: 0.3rem 0 0.8rem 0;
+    line-height: 1.2;
 }
 
 .book-img {
-    width: 100%;
+    width: 200px;
     height: auto;
-    margin-top: 2%;
+    object-fit: cover;
     border-radius: 3%;
 }
 
