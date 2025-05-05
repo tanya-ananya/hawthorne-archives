@@ -94,16 +94,27 @@ header img {
 
 .the-books {
     margin: 0%;
-    line-height: 0.5;
+    line-height: normal;
 }
 
 .each-book {
     margin-left: 2%;
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    margin-top: 2%;
+}
+
+.book {
+    text-align: center;
+    width: 18%;
 }
 
 .book-img {
-    width: 15%;
+    width: 100%;
+    height: auto;
     margin-top: 2%;
+    border-radius: 3%;
 }
 
 footer {
