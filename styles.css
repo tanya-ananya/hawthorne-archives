@@ -27,18 +27,26 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0% 1% 0% 1%;
+    margin: 1% 2%;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
 }
 
 .navbar ul {
+    display: flex;
     z-index: 1000;
-    color: #103e1f;
+    color: var(--nav-light-text-color);
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar ul li {
     float: left;
-    margin: 10px;
+    margin: 0 15px;
 }
 
 .navbar ul li a:hover {
@@ -48,6 +56,73 @@ main {
 .navbar ul li a:visited {
     color: inherit;
 }
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #004927;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    background-image: url('./img/dark-mode.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #aed0b5;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #aed0b5;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(40px);
+    -ms-transform: translateX(40px);
+    transform: translateX(36px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 h1 {
     text-align: center;
@@ -142,10 +217,12 @@ footer img {
     --bg-color: #f2ebdc;
     --text-color: #05220e;
     --footer-background-color: #ded4bd;
+    --nav-light-text-color: #103e1f;
 
     /* Dark Mode */
-    --bg-color-dark-mode: #103e1f;
+    --bg-color-dark-mode: #00250c;
     --text-color-dark-mode: #fff;
+    --nav-color-dark-mode: #103e1f;
 
     /* Accent Colors */
     --accent-color-light: #d2cff5;
@@ -157,4 +234,25 @@ footer img {
     /* Error Colors */
     --error-color: #f8bbd0;
     --error-color-border: #e63946;
+}
+
+/* Default dark mode style */
+.dark-mode {
+    background-color: var(--bg-color-dark-mode);
+    color: var(--text-color-dark-mode);
+}
+
+/* Example: Different dark mode style for h1 */
+.dark-mode .navbar {
+    background-color: var(--nav-color-dark-mode);
+    color: var(--text-color-dark-mode);
+}
+
+.dark-mode .navbar ul {
+    color: var(--nav-light-dark-mode);
+}
+
+/* Example: Different dark mode style for visited links */
+.dark-mode footer {
+    background-color: var(--nav-color-dark-mode);
 }
