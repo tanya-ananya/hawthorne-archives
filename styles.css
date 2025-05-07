@@ -19,6 +19,14 @@ main {
     margin: 0 4% 0 4%;
 }
 
+h2 {
+    text-decoration: underline;
+}
+
+header h2 {
+    text-decoration: none;
+}
+
 .navbar {
     background-color: var(--footer-background-color);
 }
@@ -200,15 +208,64 @@ header img {
     border-radius: 3%;
 }
 
+#rsvp-form label,
+#rsvp-form input {
+    display: block;
+    margin: 10px 0;
+}
+
+#rsvp-form input {
+    margin-bottom: 20px;
+    width: 250px;
+    font-size: large;
+}
+
+#rsvp-button {
+    margin: 7px 0 10px 0;
+    background-color: var(--accent-color-green-light);
+    color: white;
+    padding: 8px;
+    border-radius: 10%;
+}
+
+.rsvp-container {
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.rsvp-left {
+    width: 50%;
+}
+
+.rsvp-para {
+    padding-right: 10px;
+}
+
+.rsvp-left h3 {
+    margin: 0;
+}
+
+.rsvp-participants li {
+    margin: 20px 0;
+}
+
+.form-container {
+    width: 45%;
+    padding-right: 10px;
+}
+
 footer {
-    height: 55px;
+    height: 4%;
     text-align: center;
     background-color: var(--footer-background-color);
 }
 
 footer img {
     padding-top: 0.9%;
-    width: 4.5%;
+    width: 4%;
     display: inline-block;
 }
 
@@ -250,6 +307,20 @@ footer img {
 
 .dark-mode .navbar ul {
     color: var(--nav-light-dark-mode);
+}
+
+.dark-mode a:hover {
+    color: rgb(227, 255, 245);
+}
+
+.dark-mode a:visited {
+    color: wheat;
+}
+
+.dark-mode #rsvp-button {
+    background-color: rgb(245, 235, 218);
+    color: var(--accent-color-green-light);
+    font-weight: 600;
 }
 
 /* Example: Different dark mode style for visited links */
