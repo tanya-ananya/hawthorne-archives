@@ -10,7 +10,7 @@
         <div class="header-container">
             <div class="navbar">
                 <div class="nav-specific">
-                    <img id="header-img" src="./img/placeholder.png"/>
+                    <a href="index.html"><img id="header-img" src="./img/club_b.png"/></a>
                     <div id="theme-button" class="nav-right">
                         <button id="reduce-motion">Reduce Motion</button>
                         <label class="switch">
@@ -91,32 +91,42 @@
                 </div>
             </div>
 
-            <div id="rsvp revealable">
-                <h2>🖋️ Current Reads</h2>
-                <div class="rsvp-container">
-                    <div class="rsvp-left">
-                        <div class="rsvp-para">
-                            <h3>Comment your current read ✨</h3>
+            <div id="forum revealable">
+                <h2>🖋️ Favorite Reads</h2>
+                <div class="forum-container">
+                    <div class="forum-left">
+                        <div class="forum-para">
+                            <h3>Enter your favorite book from the whole series ✨</h3>
                         </div>
-                        <div class="rsvp-participants">
-                            <h3 style="margin-top: 15px;">Other Users' Current Reads:</h3>
+                        <div class="forum-participants">
+                            <h3 style="margin-top: 15px;">Other Users' Favorite Reads:</h3>
                             <ul>
-                                <li>The Inheritance Games by Jennifer Lynn Barnes</li>
+                                <li>Tanya's favorite is <i>The Brothers Hawthorne</i></li>
                             </ul>
                         </div>
                     </div>
-                    <!--- Sign RSVP Form --->
                     <div class="form-container">
-                        <form id="rsvp-form" title="rsvp-form">
+                        <form id="forum-form" title="forum-form">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" placeholder="Name/Username">
                             <label for="title">Title:</label>
-                            <input type="text" name="title" placeholder="First & Last Name">
-                            <label for="author">Author:</label>
-                            <input type="text" name="author" placeholder="Full Title">
+                            <input type="text" name="title" placeholder="Full Title">
                         </form>
-                        <!-- Submit button -->
-                        <button id="rsvp-button">Submit RSVP</button>
+                        <button id="forum-button">Submit Fav</button>
                     </div> 
                 </div>     
+            </div>
+
+            <div id="success-modal" class="modal">
+                <div class="modal-container">
+                    <button id="modal-close">X</button>
+                    <div id="modal-item">
+                        <p id="modal-text">Placeholder</p>
+                    </div>
+                    <div id="modal-item">
+                        <img id="modal-image" src="img/club_b.png" alt="">
+                    </div>
+                </div>
             </div>
         </main>
             

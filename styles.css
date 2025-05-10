@@ -25,15 +25,18 @@ h1 {
 }
 
 h2 {
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 header h2 {
     text-decoration: none;
 }
 
-/** Navbar ***/
+i {
+    font-style: italic;
+}
 
+/** Navbar ***/
 .navbar {
     background-color: var(--footer-background-color);
 }
@@ -79,14 +82,14 @@ header h2 {
     display: inline-block;
     width: 70px;
     height: 34px;
-  }
-  
+}
+
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
-  
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -98,7 +101,7 @@ header h2 {
     -webkit-transition: .4s;
     transition: .4s;
 }
-  
+
 .slider:before {
     position: absolute;
     content: "";
@@ -114,15 +117,15 @@ header h2 {
     -webkit-transition: .4s;
     transition: .4s;
 }
-  
+
 input:checked + .slider {
     background-color: #aed0b5;
 }
-  
+
 input:focus + .slider {
     box-shadow: 0 0 1px #aed0b5;
 }
-  
+
 input:checked + .slider:before {
     -webkit-transform: translateX(40px);
     -ms-transform: translateX(40px);
@@ -132,7 +135,7 @@ input:checked + .slider:before {
 .slider.round {
     border-radius: 34px;
 }
-  
+
 .slider.round:before {
     border-radius: 50%;
 }
@@ -167,25 +170,24 @@ input:checked + .slider:before {
     color: wheat;
 }
 
-.dark-mode #rsvp-button {
+.dark-mode #forum-button {
     background-color: rgb(245, 235, 218);
     color: var(--accent-color-green-light);
     font-weight: 600;
 }
 
 .dark-mode footer {
-    background-color: var(--footer-background-color);
+    background-color: var(--nav-color-dark-mode);
 }
 
 /** Header **/
-
 .header-container {
     display: flex;
     flex-direction: column;
 }
 
 #header-img {
-    width: 4%;
+    width: 12%;
 }
 
 .header-content {
@@ -221,7 +223,6 @@ header img {
 }
 
 /** Books Section **/
-
 .the-books {
     margin: 0%;
     line-height: normal;
@@ -256,20 +257,19 @@ header img {
 }
 
 /* Current Reads */
-
-#rsvp-form label,
-#rsvp-form input {
+#forum-form label,
+#forum-form input {
     display: block;
     margin: 10px 0;
 }
 
-#rsvp-form input {
+#forum-form input {
     margin-bottom: 20px;
     width: 250px;
     font-size: large;
 }
 
-#rsvp-button {
+#forum-button {
     margin: 7px 0 10px 0;
     background-color: var(--accent-color-green-light);
     color: white;
@@ -278,7 +278,7 @@ header img {
     cursor: pointer;
 }
 
-.rsvp-container {
+.forum-container {
     display: flex;
     flex-direction: row;
     gap: 120px;
@@ -286,19 +286,19 @@ header img {
     padding-bottom: 5px;
 }
 
-.rsvp-left {
+.forum-left {
     width: 50%;
 }
 
-.rsvp-para {
+.forum-para {
     padding-right: 10px;
 }
 
-.rsvp-left h3 {
+.forum-left h3 {
     margin: 0;
 }
 
-.rsvp-participants li {
+.forum-participants li {
     margin: 20px 0;
 }
 
@@ -314,7 +314,51 @@ header img {
     background-color: rgb(255, 188, 188);
 }
 
+/** Modal **/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.modal-container {
+    padding: 50px;
+    width: 55%;
+    background-color: rgb(36, 97, 40);
+    color: var(--bg-color);
+    text-align: center;
+    font-size: 1rem;
+    font-family: monospace;
+    display: flex;
+    border-radius: 1%;
+}
+
+.modal-item {
+    /* Optional: Style individual elements within the modal */
+}
+
+#modal-image {
+    width: 60%;
+}
+
+#modal-close {
+    height: 15%;
+    background-color: var(--footer-background-color);
+    color: var(--nav-light-text-color);
+    border: none;
+    padding: 0 9px;
+    border-radius: 100%;
+}
+
+/** Footer **/
 footer {
     height: 4%;
     text-align: center;
@@ -335,8 +379,8 @@ footer img {
 
     opacity: 0;
     transform: translateY(var(--reveal-distance)) scale(0.95);
-    transition: opacity var(--reveal-duration) ease-out, 
-                transform var(--reveal-duration) ease-out;
+    transition: opacity var(--reveal-duration) ease-out,
+        transform var(--reveal-duration) ease-out;
     position: relative;
 }
 

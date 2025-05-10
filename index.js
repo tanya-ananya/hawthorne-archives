@@ -1,7 +1,5 @@
-// Step 1: Select the theme button
 let themeToggle = document.querySelector(".switch input");
 
-// Step 2: Write the callback function
 const toggleDarkMode = () => {
     document.body.classList.toggle("dark-mode");
 
@@ -16,20 +14,18 @@ const toggleDarkMode = () => {
 themeToggle.addEventListener("change", toggleDarkMode);
 
 
-let submitForm = document.querySelector("#rsvp-button")
+let submitForm = document.querySelector("#forum-button")
 
-const addParticipant = (event) => {
+const addParticipant = (event, book_info) => {
     event.preventDefault();
 
-    const form = document.getElementById("rsvp-form");
-    let title = form.elements["title"].value;
-    let author = form.elements["author"].value;
+    const form = document.getElementById("forum-form");
 
-    if (title && author) {
+    if (book_info.name && book_info.title) {
         const listItem = document.createElement("li");
-        listItem.textContent = `${title} by ${author}`;
+        listItem.textContent = `${book_info.name}'s favorite is ${book_info.title}`;
 
-        const list = document.querySelector(".rsvp-participants ul");
+        const list = document.querySelector(".forum-participants ul");
         list.appendChild(listItem);
 
         form.reset();
@@ -38,12 +34,17 @@ const addParticipant = (event) => {
     }
 };
 
-const validateForm = () => {
+const validateForm = (event) => {
     let containsErrors = false;
-    var rsvpInputs = document.getElementById("rsvp-form").elements;
+    var forumInputs = document.getElementById("forum-form").elements;
+
+    const book_info = {
+        name: forumInputs["name"].value,
+        title: forumInputs["title"].value
+    };
     
-    for (let i = 0; i < rsvpInputs.length; i++) {
-        const input = rsvpInputs[i];
+    for (let i = 0; i < forumInputs.length; i++) {
+        const input = forumInputs[i];
         if (input.value.length < 2) {
             containsErrors = true;
             input.classList.add("error");
@@ -53,9 +54,10 @@ const validateForm = () => {
     };
 
     if (containsErrors == false) {
-        addParticipant(event);
-        for (let i = 0; i < rsvpInputs.length; i++) {
-            rsvpInputs[i].value = "";
+        addParticipant(event, book_info);
+        toggleModal(book_info);
+        for (let i = 0; i < forumInputs.length; i++) {
+            forumInputs[i].value = "";
         };
     };
 };
@@ -97,3 +99,36 @@ const reduceMotion = () => {
 }
 
 reduceBtn.addEventListener("click", reduceMotion);
+const modal = document.getElementById("success-modal");
+
+const toggleModal = (book_info) => {
+    const modalContent = document.getElementById("modal-text");
+    modal.style.display = "flex";
+
+    modalContent.innerHTML = `
+        <h3><strong>User name:</strong> ${book_info.name}</h3>
+        <h3><strong>Title:</strong> ${book_info.title}</h3>
+        <h3>That's a good choice! Your favorite book has been recorded ✨</h3>
+    `;
+
+    setTimeout(() => {
+        modal.style.display = "none";
+        clearInterval(intervalId);
+    }, 500000);
+    let intervalId = setInterval(animateImage, 500);
+};
+
+let rotateFactor = 0;
+modalImage = document.getElementById("modal-image");
+
+const animateImage = () => {
+    rotateFactor = rotateFactor === 0 ? -10 : 0;
+    modalImage.style.transform = `rotate(${rotateFactor}deg)`;
+}
+
+let close = document.getElementById("modal-close");
+const closeModal = () => {
+    modal.style.display = "none";
+};
+
+close.addEventListener("click", closeModal);
