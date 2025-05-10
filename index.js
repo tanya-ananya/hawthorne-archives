@@ -19,7 +19,7 @@ themeToggle.addEventListener("change", toggleDarkMode);
 let submitForm = document.querySelector("#rsvp-button")
 
 const addParticipant = (event) => {
-    event.preventDefault(); // Prevent form submission from refreshing the page
+    event.preventDefault();
 
     const form = document.getElementById("rsvp-form");
     let title = form.elements["title"].value;
@@ -32,21 +32,16 @@ const addParticipant = (event) => {
         const list = document.querySelector(".rsvp-participants ul");
         list.appendChild(listItem);
 
-        // Clear input fields after adding the participant
         form.reset();
     } else {
         alert("Please fill out both fields before submitting.");
     }
 };
 
-// Step 1: We actually don't need to select the form button again -- we already did it in the RSVP code above.
-
-// Step 2: Write the callback function
 const validateForm = () => {
     let containsErrors = false;
     var rsvpInputs = document.getElementById("rsvp-form").elements;
     
-    // TODO: Loop through all inputs
     for (let i = 0; i < rsvpInputs.length; i++) {
         const input = rsvpInputs[i];
         if (input.value.length < 2) {
@@ -56,10 +51,7 @@ const validateForm = () => {
             input.classList.remove("error");
         };
     };
-  
-    // TODO: Inside loop, validate the value of each input
 
-    // TODO: If no errors, call addParticipant() and clear fields
     if (containsErrors == false) {
         addParticipant(event);
         for (let i = 0; i < rsvpInputs.length; i++) {
@@ -68,8 +60,40 @@ const validateForm = () => {
     };
 };
   
-// Step 3: Replace the form button's event listener with a new one that calls validateForm()
 submitForm.addEventListener("click", validateForm);
 
-/*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
-/*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/
+
+const reveal = () => {
+    const revealableContainers = document.querySelectorAll(".revealable");
+
+    revealableContainers.forEach((container, index) => {
+        const windowHeight = window.innerHeight;
+        const topOfRevealableContainer = container.getBoundingClientRect().top;
+        const revealDistance = parseInt(getComputedStyle(container).getPropertyValue('--reveal-distance'), 10);
+
+        if (topOfRevealableContainer < windowHeight - revealDistance) {
+            container.classList.add("active");
+            container.style.transitionDelay = `${index * 0.2}s`; // Stagger effect
+        } else {
+            container.classList.remove("active");
+            container.style.transitionDelay = "0s";
+        }
+    });
+};
+
+window.addEventListener("scroll", reveal);
+
+let reduceBtn = document.getElementById("reduce-motion");
+
+const reduceMotion = () => {
+    let btnCheck = document.body.classList;
+    if (btnCheck.contains("reduce-motion")) {
+        btnCheck.remove("reduce-motion");
+        reduceBtn.textContent = "Reduce Motion";
+    } else {
+        btnCheck.add("reduce-motion");
+        reduceBtn.textContent = "Enable Motion";
+    }
+}
+
+reduceBtn.addEventListener("click", reduceMotion);
